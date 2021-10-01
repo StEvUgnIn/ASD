@@ -1,0 +1,35 @@
+\documentclass{article}
+
+\usepackage{algorithm}            %  float wrapper for algorithms.
+\usepackage{algpseudocodex}       % layout for algorithmicx
+
+\begin{document}
+
+% algorithm 
+\begin{algorithm}
+  \begin{algorithmic}[K]
+    \caption{Insertion Élément d'Indice i(T, Gauche, i, Pas)}
+    \State $Sauvegarde \gets T[i]$
+    \State $j \gets i - Pas$
+    \While{$j \geq Gauche$ et $T[j] > Sauvegarde$}
+      \State $T[j+Pas] \gets T[j]$, copie d'une case dans la case suivante
+      \State $j \gets j - Pas$
+    \EndWhile
+    \State $T[i+Pas] \gets Sauvegarde$
+  \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+  \begin{algorithmic}[2]
+    \caption{Tri Insertion itératif(T, Gauche, Droite, k)}
+    \For{$i = Gauche+k, \dots, Droite$}
+      \State $Pas \gets 1$
+      \For{$i = k, \dots, 1$}
+        \State $Pas \gets 3 * Pas + 1$
+        \State \Call{Insertion Élément d'Indice i}{T, Gauche, i, Pas}
+      \EndFor
+    \EndFor
+  \end{algorithmic}
+\end{algorithm}
+ 
+\end{document}

@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage{algorithm}           %  float wrapper for algorithms.
+\usepackage{algpseudocodex}        % layout for algorithmicx
+
+\begin{document}
+
+% algorithm 
+\begin{algorithm}
+  \begin{algorithmic}[1]
+    \caption{Insertion Élément d'Indice i(T, Gauche, i)}
+    \State $Sauvegarde \gets T[i]$
+    \State $j \gets i - 1$
+    \While{$j \geq Gauche$ et $T[j] > Sauvegarde$}
+      \State $T[j+1] \gets T[j]$, copie d'une case dans la case suivante
+      \State $j \gets j - 1$
+    \EndWhile
+    \State $T[i+1] \gets Sauvegarde$         
+  \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+  \begin{algorithmic}[2]
+    \caption{Tri Insertion itératif(T, Gauche, Droite)}
+    \label{algorithm: insert sort iterative}
+    \For{$i = Gauche+1, \dots, Droite$}
+      \State \Call{Insertion Élément d'Indice i}{T, Gauche, i}
+    \EndFor
+  \end{algorithmic}
+\end{algorithm}
+ 
+\end{document}
