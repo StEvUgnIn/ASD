@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\usepackage{algorithm}
+\usepackage{algpseudocodex}
+
+\begin{document}
+
+\begin{algorithm}
+	\begin{algorithmic}[1]
+		\caption{Cherche Père (G, D)}
+		\State $ Taille \gets D - G + 1 $
+		\State $ i \gets Taille / 2 $
+		\Return $i$
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+	\begin{algorithmic}[2]
+		\caption{Transpose T en Arbre (T, G, D)}
+		\For{$ i \gets G, \dots, D $} step: 3
+			\State $ A \gets T[i] $
+			\State $ Gauche(A) \gets T[i+1]$ lorsque $T[i+1]$ existe
+			\State $ Droite(A) \gets T[i+2]$ lorsque $T[i+2]$ existe
+			\State $ A \gets Suivant(A) $
+		\EndFor
+		\Return $A$
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+	\begin{algorithmic}[3]
+		\caption{Tri Par Tas (T, G, D)}
+		\State $ P \gets \Call{Cherche Pere}{G, D} $
+		\State $ A \gets \Call{Transpose T en Arbre}{T, G, D} $
+		\For{$ i = P, \dots, G $}
+			\State $ A \gets Indice(A, i) $
+			\State $ i \gets i - 3 $
+			\State $ \Call{Rendre Maximier}{T, i, G + P - i + 1} $
+		\EndFor
+	\end{algorithmic}
+\end{algorithm}
+
+\end{document}
