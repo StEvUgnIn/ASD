@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage{algorithm}
+\usepackage{algpseudocodex}
+
+\begin{document}
+
+\begin{algorithm}
+    \begin{algorithmic}[1]
+        \caption{Explorer(Tab, Gauche, Droite)}
+        \State $ Pivot1 \gets Tab + Gauche $
+        \State $ Pivot2 \gets Tab + Droite $
+        \State $ i \gets Gauche $
+        \State $ j \gets Droite $
+        \State $ k \gets Gauche + 1 $
+        \While{$i < j$}
+            \While{$ k < Droite $}
+                \If{$ Tab[k] > *Pivot1 $}
+                    \State $ i \gets Tab + k $
+                \EndIf
+                \State $ k \gets k + 1 $
+            \EndWhile
+            \State $ k \gets Droite - 1 $
+            \While{$ k > Gauche $}
+                \If{$ Tab[k] <= *Pivot2 $}
+                    \State $ j \gets Tab + k $
+                \EndIf
+                \State $ k \gets k - 1 $
+            \EndWhile
+            \If{$i < j$}
+                \Call{echanger}{i, j}
+            \EndIf
+        \EndWhile
+        \Call{echanger}{G, j}
+        \Call{Rendre}{j}
+    \end{algorithmic}
+\end{algorithm}
+
+\end{document}
