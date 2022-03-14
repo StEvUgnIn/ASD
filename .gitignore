@@ -8,12 +8,14 @@
 *.elf
 
 # Linker output
+*.bin
 *.ilk
 *.map
 *.exp
 
 # Precompiled Headers
 *.gch
+*.ipch
 *.pch
 
 # Libraries
